@@ -1,0 +1,32 @@
+ {
+    "Album": {
+        "0": {
+            "title": "Sunny day in the park",
+            "date": 28,
+            "month": "MAR",
+            "year": 2018,
+            "mainCategory": "Nature"
+        },
+        "1": {
+            "title": "Funny dog",
+            "date": 28,
+            "month": "MAR",
+            "year": 2018,
+            "mainCategory": "Animals"
+        },
+        "2": {
+            "title": "Stranger",
+            "date": 28,
+            "month": "MAR",
+            "year": 2018,
+            "mainCategory": "Portraits"
+        },
+        "3": {
+            "title": "CLoudy day in the park",
+            "date": 29,
+            "month": "MAR",
+            "year": 2018,
+            "mainCategory": "Nature"
+        }
+    }
+}
