@@ -4,18 +4,18 @@ import * as firebase from 'firebase';
 import * as searchView from './views/searchView';
 import * as uploadView from './views/uploadView';
 import { elements } from './views/base';
-import {config} from './config/firebase.config';
-import * as getFormInputs  from './views/uploadView';
+import { config } from './config/firebase.config';
+import * as getFormInputs from './views/uploadView';
 import { writeNewPost } from './models/Upload';
 
 //filter
 const state = {};
-firebase.database().ref('Album/').once('value').then(function(snapshot) {
+firebase.database().ref('Album/').once('value').then(function (snapshot) {
     let res = snapshot.val();
-    for(let i in res) {
-       if(res.hasOwnProperty(i) && res[i].category === 'nature'){
-         
-       }
+    for (let i in res) {
+        if (res.hasOwnProperty(i) && res[i].category === 'nature') {
+
+        }
     }
 });
 
@@ -57,3 +57,19 @@ uploadView.send().addEventListener('click', () => {
     writeNewPost(getFormInputs.getTitle(), getFormInputs.getUserName(), getFormInputs.getCategory());
 });
 
+//Order by last post
+var datab = firebase.database().ref('Album');
+console.log(datab.toString());
+function orderByLastAdded() {
+    let arr = [];
+    let prom = new Promise((resolve, reject) => {
+        datab.orderByChild('date').on('child_added', function (snap, v) {
+            arr.push(snap.val());
+            resolve('Success');
+        })
+    });
+    prom.then(result => {
+        console.log(arr.reverse(), result)
+    });
+}
+orderByLastAdded();
