@@ -1,6 +1,11 @@
+
  export const elements = {
        searchCategory: document.querySelector('.select'),
-//     // searchInput: document.querySelector('.search__field'),
+       uploadForm: document.querySelector('.form-popup'),
+       uploadFormSelect: document.querySelector('.select-upload'),
+       uploadFormUserName: document.querySelector('.userInput'),
+       uploadFormTitle: document.querySelector('.titleInput'),
+       uploadFormPost: document.querySelector('.formUpload'),
 //     // searchRes: document.querySelector('.results'),
 //     // searchResList: document.querySelector('.results__list'),
        searchResPages: document.querySelector('.results_Photos'),

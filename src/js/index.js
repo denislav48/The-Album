@@ -1,22 +1,23 @@
-import '../css/style.css';
+firebase.initializeApp(config);
 import Search from './models/Search';
-
-// import Recipe from './models/Recipe';
-// import List from './models/List';
-// import Likes from './models/Likes';
+import * as firebase from 'firebase';
 import * as searchView from './views/searchView';
-// import * as recipeView from './views/recipeView';
-// import * as listView from './views/listView';
-// import * as likesView from './views/likesView';
+import * as uploadView from './views/uploadView';
 import { elements } from './views/base';
+import {config} from './config/firebase.config';
+import * as getFormInputs  from './views/uploadView';
+import { writeNewPost } from './models/Upload';
 
-// /** Global state of the app
-//  * - Search object
-//  * - Current recipe object
-//  * - Shopping list object
-//  * - Liked recipes
-//  */
+//filter
 const state = {};
+firebase.database().ref('Album/').once('value').then(function(snapshot) {
+    let res = snapshot.val();
+    for(let i in res) {
+       if(res.hasOwnProperty(i) && res[i].category === 'nature'){
+         
+       }
+    }
+});
 
 /** 
  * SEARCH CONTROLLER
@@ -31,9 +32,8 @@ const controlSearch = async () => {
             await state.search.getResults();
             let results = state.search.result;
             let categoryResults = [];
-            results.forEach(pic => {
-                if (pic.mainCategory === query) {
-                    console.log(pic);
+            Object.keys(results).forEach(pic => {
+                if (results[pic].category === query) {
                     categoryResults.push(pic);
                 }
             });
@@ -49,5 +49,11 @@ elements.searchCategory.addEventListener('change', e => {
     e.preventDefault();
     elements.searchResPages.innerHTML = '';
     controlSearch();
+});
+
+//Upload COntroller
+
+uploadView.send().addEventListener('click', () => {
+    writeNewPost(getFormInputs.getTitle(), getFormInputs.getUserName(), getFormInputs.getCategory());
 });
 

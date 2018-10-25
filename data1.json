@@ -1,0 +1,142 @@
+{
+    "Album": {
+        "0": {
+            "title": "Sunny day in the park",
+            "date": 28,
+            "userName": "Thomas",
+            "category": "nature"
+        },
+        "1": {
+            "title": "Flower",
+            "date": 28,
+            "userName": "Thomas",
+            "category": "nature"
+        },
+        "2": {
+            "title": "sea",
+            "date": 28,
+            "userName": "Tania",
+            "category": "nature"
+        },
+        "3": {
+            "title": "CLoudy day in the park",
+            "date": 29,
+            "userName": "Tania",
+            "category": "nature"
+        },
+        "4": {
+            "title": "beach",
+            "date": 28,
+            "userName": "Thomas",
+            "category": "nature"
+        },
+        "5": {
+            "title": "grass",
+            "date": 28,
+            "userName": "Denislav",
+            "category": "nature"
+        },
+        "6": {
+            "title": "CLoudy day in the park",
+            "date": 29,
+            "userName": "Denislav",
+            "category": "nature"
+        },
+        "7": {
+            "title": "cat",
+            "date": 28,
+            "userName": "Denislav",
+            "category": "animals"
+        },
+        "8": {
+            "title": "Funny dog",
+            "date": 28,
+            "userName": "Denislav",
+            "category": "animals"
+        },
+        "9": {
+            "title": "blue sky",
+            "date": 28,
+            "userName": "Denislav",
+            "category": "animals"
+        },
+        "10": {
+            "title": "CLoudy day in the park",
+            "date": 29,
+            "userName": "Denislav",
+            "category": "animals"
+        },
+        "11": {
+            "title": "dark sky",
+            "date": 28,
+            "userName": "Denislav",
+            "category": "animals"
+        },
+        "12": {
+            "title": "forest",
+            "date": 28,
+            "userName": "Denislav",
+            "category": "animals"
+        },
+        "13": {
+            "title": "lady",
+            "date": 29,
+            "userName": "Denislav",
+            "category": "portraits"
+        },
+        "14": {
+            "title": "grandpaa",
+            "date": 28,
+            "userName": "Denislav",
+            "category": "portraits"
+        },
+        "15": {
+            "title": "mother",
+            "date": 28,
+            "userName": "Denislav",
+            "category": "portraits"
+        },
+        "16": {
+            "title": "Stranger",
+            "date": 28,
+            "userName": "Denislav",
+            "category": "portraits"
+        },
+        "17": {
+            "title": "child",
+            "date": 29,
+            "userName": "Denislav",
+            "category": "portraits"
+        },
+        "18": {
+            "title": "sister",
+            "date": 28,
+            "userName": "Denislav",
+            "category": "portraits"
+        },
+        "19": {
+            "title": "Strange selfie",
+            "date": 28,
+            "userName": "Denislav",
+            "category": "selfies"
+        },
+        "20": {
+            "title": "selfie in the bathroom",
+            "date": 29,
+            "userName": "Denislav",
+            "category": "selfies"
+        },
+        "21": {
+            "title": "selfie on the beach",
+            "date": 28,
+            "userName": "Denislav",
+            "category": "selfies"
+        },
+        "22": {
+            "title": "selfie with friends",
+            "date": 28,
+            "userName": "Denislav",
+            "category": "selfies"
+        }
+    }
+}
