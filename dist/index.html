@@ -39,46 +39,37 @@
             </nav>
         </header>
 
-        <!-- <input type="file"> -->
+        <button class="send-photo">Upload a photo</button>
+        <div class="form-popup" id="myForm">
+            <form class="form-container">
+                <select class="select-upload">
+                    <option>Choose a categorie..</option>
+                    <option value="animals">Animals</option>
+                    <option value="nature">Nature</option>
+                    <option value="portraits">Portraits</option>
+                    <option value="selfies">Selfies</option>
+                </select>
 
-        <button class="send-photo" onclick="openForm()">Upload a photo</button>
+                <label for="file"><b>Choose a photo</b></label>
+                <input id="file" type="file" name="file">
 
-<div class="form-popup" id="myForm">
-  <form class="form-container">
-    <select class="select-upload">
-        <option>Choose a categorie..</option>
-        <option value="Animals">Animals</option>
-        <option value="Nature">Nature</option>
-        <option value="Portraits">Portraits</option>
-        <option value="Selfies">Selfies</option>
-    </select>
+                <label for="name"><b>Name</b></label>
+                <input class="userInput" type="text" placeholder="Enter your name" name="name" required>
 
-    <label for="name"><b>Name</b></label>
-    <input class="userInput" type="text" placeholder="Enter your name" name="name" required>
+                <label for="title"><b>Title</b></label>
+                <input class="titleInput" type="text" placeholder="Enter title" name="title" required>
 
-    <label for="title"><b>Title</b></label>
-    <input class="titleInput" type="text" placeholder="Enter title" name="title" required>
+                <button type="button" class="btn formUpload">Upload</button>
+                <button type="button" class="btn cancel">Close</button>
+            </form>
+        </div>
 
-    <button type="button" class="btn formUpload">Upload</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
-</div>
-
-<script>
-    function openForm() {
-        document.getElementById("myForm").style.display = "block";
-    }
-    
-    function closeForm() {
-        document.getElementById("myForm").style.display = "none";
-    }
-    </script>
-        
         <div class="results">
             <div class="results_Photos">
             </div>
         </div>
     </div>
+    <script src="../dist/js/bundle.js"></script>
 </body>
 
 </html>

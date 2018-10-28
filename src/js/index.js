@@ -8,24 +8,17 @@ import { config } from './config/firebase.config';
 import * as getFormInputs from './views/uploadView';
 import { writeNewPost } from './models/Upload';
 
-//filter
-const state = {};
-firebase.database().ref('Album/').once('value').then(function (snapshot) {
-    let res = snapshot.val();
-    for (let i in res) {
-        if (res.hasOwnProperty(i) && res[i].category === 'nature') {
-
-        }
-    }
-});
 
 /** 
  * SEARCH CONTROLLER
  */
+
+ //Order by Category
 const controlSearch = async () => {
     // 1) Get query from view
     const query = searchView.getInput();
-    if (query) {
+    if (query && query !== 'All') {
+        console.log(query);
         state.search = new Search(query);
         try {
             //Search for photos
@@ -34,42 +27,82 @@ const controlSearch = async () => {
             let categoryResults = [];
             Object.keys(results).forEach(pic => {
                 if (results[pic].category === query) {
-                    categoryResults.push(pic);
+                    categoryResults.push(results[pic]);
                 }
             });
-            searchView.renderResults(categoryResults);
+            // console.log(categoryResults);
+            categoryResults.reverse();
+            categoryResults.forEach(el => {
+                let storageReff = firebase.storage().ref(`images/${el.key}`);
+                storageReff.getDownloadURL().then(function (url) {
+                    searchView.renderResults([url]);
+                });
+            });
+
+
         } catch (err) {
             alert(err);
         }
+    } else if (query === 'All') {
+        orderAllByDate();
     }
 }
 
 
 elements.searchCategory.addEventListener('change', e => {
+    if(searchView.getInput() !== 'Choose a categorie..') {
     e.preventDefault();
     elements.searchResPages.innerHTML = '';
     controlSearch();
+    }
 });
 
 //Upload COntroller
 
 uploadView.send().addEventListener('click', () => {
-    writeNewPost(getFormInputs.getTitle(), getFormInputs.getUserName(), getFormInputs.getCategory());
+    let title = getFormInputs.getTitle(),
+        user = getFormInputs.getUserName(),
+        category = getFormInputs.getCategory();
+    if (title && user && category) {
+        writeNewPost(title, user, category);
+    } else {
+        console.log('Missing field!')
+    }
 });
 
 //Order by last post
 var datab = firebase.database().ref('Album');
-console.log(datab.toString());
-function orderByLastAdded() {
+
+function orderAllByDate() {
     let arr = [];
     let prom = new Promise((resolve, reject) => {
-        datab.orderByChild('date').on('child_added', function (snap, v) {
+        datab.orderByChild('date').on('child_added', function (snap) {
             arr.push(snap.val());
             resolve('Success');
         })
     });
     prom.then(result => {
-        console.log(arr.reverse(), result)
+
+        arr.reverse();
+
+        arr.forEach(el => {
+            let storageReff = firebase.storage().ref(`images/${el.key}`);
+            storageReff.getDownloadURL().then(function (url) {
+                searchView.renderResults([url]);
+            })
+                .catch((err) => console.log(err));
+        });
+
     });
 }
-orderByLastAdded();
+orderAllByDate();
+
+
+//Form control
+
+elements.uploadPhotoButton.addEventListener('click', () => {
+    elements.uploadForm.style.display = "block";
+});
+elements.closeForm.addEventListener('click', () => {
+    elements.uploadForm.style.display = 'none';
+});
