@@ -8,6 +8,7 @@ import { config } from './config/firebase.config';
 import * as getFormInputs from './views/uploadView';
 import { writeNewPost } from './models/Upload';
 
+const state = {};
 
 /** 
  * SEARCH CONTROLLER
@@ -75,6 +76,7 @@ var datab = firebase.database().ref('Album');
 
 function orderAllByDate() {
     let arr = [];
+    let res = [];
     let prom = new Promise((resolve, reject) => {
         datab.orderByChild('date').on('child_added', function (snap) {
             arr.push(snap.val());
