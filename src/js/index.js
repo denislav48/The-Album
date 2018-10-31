@@ -22,7 +22,7 @@ elements.searchCategory.addEventListener('change', () => {
 //Order by Category
 const controlSearch = async (val) => {
     // 1) Get query from view
-    const query = searchView.getInput();
+    const query = searchView.getSelectValue();
 
     console.log(query);
     state.search = new Search(query);
@@ -38,16 +38,18 @@ const controlSearch = async (val) => {
             Object.keys(results).forEach(pic => {
                 if (results[pic].category === query && (val ? (results[pic].title.toLowerCase().search(value) !== -1) : true)) {
                     categoryResults.push(results[pic]);
+                
                 }
             });
         } else if (onCurrent && query && query === 'All' || query === 'choose') {
             Object.keys(results).forEach(pic => {
                 if (val ? (results[pic].title.toLowerCase().search(value) !== -1) : true) {
                     categoryResults.push(results[pic]);
+            
                 }
             });
             onCurrent = false;
-        } 
+        }
         categoryResults.reverse();
         categoryResults.forEach(el => {
             let storageReff = firebase.storage().ref(`images/${el.key}`);
@@ -59,22 +61,21 @@ const controlSearch = async (val) => {
         alert(err);
     }
 }
-
 controlSearch();
 
-
-elements.searchCategory.addEventListener('change', e => {
-    if (searchView.getInput() !== 'Choose a categorie..') {
-        e.preventDefault();
-        elements.searchResPages.innerHTML = '';
-        controlSearch();
+elements.searchInput.addEventListener('keyup', event => {
+    event.stopPropagation();
+    console.log(event.keyCode);
+    if (event.keyCode === 13) {
+        elements.serachButton.click();
     }
 });
 
-elements.searchInput.addEventListener('keyup', event => {
-    if (event.keyCode === 13) {
-        e.preventDefault()
-        elements.serachButton.click();
+elements.searchCategory.addEventListener('change', e => {
+    if (searchView.getSelectValue() !== 'Choose a categorie..') {
+        e.preventDefault();
+        elements.searchResPages.innerHTML = '';
+        controlSearch();
     }
 });
 
@@ -85,9 +86,7 @@ elements.serachButton.addEventListener('click', e => {
     val = elements.searchInput.value;
     controlSearch(val);
     console.log(val);
-})
-
-
+});
 
 //Upload COntroller
 

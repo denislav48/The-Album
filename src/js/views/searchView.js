@@ -1,6 +1,6 @@
 import { elements } from './base';
 
-export const getInput = () => elements.searchCategory.value;
+export const getSelectValue = () => elements.searchCategory.value;
 
 const renderPhoto = photo => {
     const markup = `
@@ -10,6 +10,8 @@ const renderPhoto = photo => {
     `;
     elements.searchResPages.insertAdjacentHTML('beforeend', markup);
 };
-export const renderResults = photos => {
-    photos.forEach(renderPhoto);
+export const renderResults = (photos, page = 1, photosPerPage = 10) => {
+    const start = 0,
+    end = 10;
+    photos.slice(start, end).forEach(renderPhoto);
 } 
