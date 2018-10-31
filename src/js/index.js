@@ -14,8 +14,8 @@ const state = {};
  * SEARCH CONTROLLER
  */
 
-//Order by Category
-const controlSearch = async () => {
+ //Order by Category
+const controlSearch = async (val) => {
     // 1) Get query from view
     const query = searchView.getInput();
     if (query && query !== 'All') {
@@ -27,7 +27,7 @@ const controlSearch = async () => {
             let results = state.search.result;
             let categoryResults = [];
             Object.keys(results).forEach(pic => {
-                if (results[pic].category === query) {
+                if (results[pic].category === query && (val ? results[pic].title === val : true)) {
                     categoryResults.push(results[pic]);
                 }
             });
@@ -59,6 +59,16 @@ elements.searchCategory.addEventListener('change', e => {
     }
 });
 
+//
+
+elements.serachButton.addEventListener('click', e => {
+     e.preventDefault();
+    elements.searchResPages.innerHTML = '';
+    let val = elements.searchInput.value;
+    controlSearch(val);
+    console.log(val);
+})
+
 //Upload COntroller
 
 uploadView.send().addEventListener('click', () => {
@@ -81,6 +91,7 @@ function orderAllByDate(a) {
     let prom = new Promise((resolve, reject) => {
         datab.orderByChild('date').on('child_added', function (snap) {
             arr.push(snap.val());
+            console.log(snap.val());
             resolve('Success');
         })
     });

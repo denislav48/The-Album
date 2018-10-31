@@ -11,7 +11,7 @@
        formUploadButton: document.querySelector('.formUpload'),
        closeForm: document.querySelector('.cancel'),
        searchResPages: document.querySelector('.results_Photos'),
-       searchByTitleInput: document.querySelector('.form-control'),
-       serachByTitleButton: document.querySelector('.btn.btn-outline-success')
+       serachButton: document.querySelector('.btn-outline-success'),
+       searchInput: document.querySelector('.form-control')
  };
 
