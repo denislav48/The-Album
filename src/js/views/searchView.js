@@ -10,6 +10,6 @@ const renderPhoto = photo => {
     `;
     elements.searchResPages.insertAdjacentHTML('beforeend', markup);
 };
-export const renderResults = recipes => {
-    recipes.forEach(renderPhoto);
+export const renderResults = photos => {
+    photos.forEach(renderPhoto);
 } 

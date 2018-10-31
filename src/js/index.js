@@ -14,7 +14,7 @@ const state = {};
  * SEARCH CONTROLLER
  */
 
- //Order by Category
+//Order by Category
 const controlSearch = async () => {
     // 1) Get query from view
     const query = searchView.getInput();
@@ -34,6 +34,7 @@ const controlSearch = async () => {
             // console.log(categoryResults);
             categoryResults.reverse();
             categoryResults.forEach(el => {
+                console.log(el);
                 let storageReff = firebase.storage().ref(`images/${el.key}`);
                 storageReff.getDownloadURL().then(function (url) {
                     searchView.renderResults([url]);
@@ -51,10 +52,10 @@ const controlSearch = async () => {
 
 
 elements.searchCategory.addEventListener('change', e => {
-    if(searchView.getInput() !== 'Choose a categorie..') {
-    e.preventDefault();
-    elements.searchResPages.innerHTML = '';
-    controlSearch();
+    if (searchView.getInput() !== 'Choose a categorie..') {
+        e.preventDefault();
+        elements.searchResPages.innerHTML = '';
+        controlSearch();
     }
 });
 
@@ -74,7 +75,7 @@ uploadView.send().addEventListener('click', () => {
 //Order by last post
 var datab = firebase.database().ref('Album');
 
-function orderAllByDate() {
+function orderAllByDate(a) {
     let arr = [];
     let res = [];
     let prom = new Promise((resolve, reject) => {
@@ -83,11 +84,21 @@ function orderAllByDate() {
             resolve('Success');
         })
     });
-    prom.then(result => {
+    prom.then(() => {
 
         arr.reverse();
 
+        // if (a) {
+        //     let resultsRes = arr.filter(el => {
+        //         el.title = a;
+        //     });
+        //     // resultsRes.forEach(el => )
+        // }
+
         arr.forEach(el => {
+
+            //let picTitle = el.title.split(' ');
+
             let storageReff = firebase.storage().ref(`images/${el.key}`);
             storageReff.getDownloadURL().then(function (url) {
                 searchView.renderResults([url]);
@@ -108,3 +119,14 @@ elements.uploadPhotoButton.addEventListener('click', () => {
 elements.closeForm.addEventListener('click', () => {
     elements.uploadForm.style.display = 'none';
 });
+
+
+//Search by title 
+
+elements.serachByTitleButton.addEventListener('click', () => {
+    //console.log("the button is clicked");
+    const searchTitle = elements.searchByTitleInput.value;
+    let searchTitleArr = searchTitle.split(' ');
+    // console.log(searchTitleArr);
+
+})
