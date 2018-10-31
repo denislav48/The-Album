@@ -9,46 +9,58 @@ import * as getFormInputs from './views/uploadView';
 import { writeNewPost } from './models/Upload';
 
 const state = {};
+let onCurrent = true;
 
+elements.searchCategory.addEventListener('change', () => {
+    onCurrent = true;
+    console.log(onCurrent);
+});
 /** 
  * SEARCH CONTROLLER
  */
 
- //Order by Category
+//Order by Category
 const controlSearch = async (val) => {
     // 1) Get query from view
     const query = searchView.getInput();
-    if (query && query !== 'All') {
-        console.log(query);
-        state.search = new Search(query);
-        try {
-            //Search for photos
-            await state.search.getResults();
-            let results = state.search.result;
-            let categoryResults = [];
+
+    console.log(query);
+    state.search = new Search(query);
+    try {
+        await state.search.getResults();
+        let results = state.search.result;
+        let categoryResults = [];
+        let value;
+        if (val) {
+            value = val.toLowerCase();
+        }
+        if (query && query !== 'All' && query !== 'choose') {
             Object.keys(results).forEach(pic => {
-                if (results[pic].category === query && (val ? results[pic].title === val : true)) {
+                if (results[pic].category === query && (val ? (results[pic].title.toLowerCase().search(value) !== -1) : true)) {
                     categoryResults.push(results[pic]);
                 }
             });
-            // console.log(categoryResults);
-            categoryResults.reverse();
-            categoryResults.forEach(el => {
-                console.log(el);
-                let storageReff = firebase.storage().ref(`images/${el.key}`);
-                storageReff.getDownloadURL().then(function (url) {
-                    searchView.renderResults([url]);
-                });
+        } else if (onCurrent && query && query === 'All' || query === 'choose') {
+            Object.keys(results).forEach(pic => {
+                if (val ? (results[pic].title.toLowerCase().search(value) !== -1) : true) {
+                    categoryResults.push(results[pic]);
+                }
             });
-
-
-        } catch (err) {
-            alert(err);
-        }
-    } else if (query === 'All') {
-        orderAllByDate();
+            onCurrent = false;
+        } 
+        categoryResults.reverse();
+        categoryResults.forEach(el => {
+            let storageReff = firebase.storage().ref(`images/${el.key}`);
+            storageReff.getDownloadURL().then(function (url) {
+                searchView.renderResults([url]);
+            });
+        });
+    } catch (err) {
+        alert(err);
     }
 }
+
+controlSearch();
 
 
 elements.searchCategory.addEventListener('change', e => {
@@ -59,15 +71,23 @@ elements.searchCategory.addEventListener('change', e => {
     }
 });
 
-//
+elements.searchInput.addEventListener('keyup', event => {
+    if (event.keyCode === 13) {
+        e.preventDefault()
+        elements.serachButton.click();
+    }
+});
 
+let val;
 elements.serachButton.addEventListener('click', e => {
-     e.preventDefault();
+    e.preventDefault();
     elements.searchResPages.innerHTML = '';
-    let val = elements.searchInput.value;
+    val = elements.searchInput.value;
     controlSearch(val);
     console.log(val);
 })
+
+
 
 //Upload COntroller
 
@@ -81,63 +101,10 @@ uploadView.send().addEventListener('click', () => {
         console.log('Missing field!')
     }
 });
-
-//Order by last post
-var datab = firebase.database().ref('Album');
-
-function orderAllByDate(a) {
-    let arr = [];
-    let res = [];
-    let prom = new Promise((resolve, reject) => {
-        datab.orderByChild('date').on('child_added', function (snap) {
-            arr.push(snap.val());
-            console.log(snap.val());
-            resolve('Success');
-        })
-    });
-    prom.then(() => {
-
-        arr.reverse();
-
-        // if (a) {
-        //     let resultsRes = arr.filter(el => {
-        //         el.title = a;
-        //     });
-        //     // resultsRes.forEach(el => )
-        // }
-
-        arr.forEach(el => {
-
-            //let picTitle = el.title.split(' ');
-
-            let storageReff = firebase.storage().ref(`images/${el.key}`);
-            storageReff.getDownloadURL().then(function (url) {
-                searchView.renderResults([url]);
-            })
-                .catch((err) => console.log(err));
-        });
-
-    });
-}
-orderAllByDate();
-
-
 //Form control
-
 elements.uploadPhotoButton.addEventListener('click', () => {
     elements.uploadForm.style.display = "block";
 });
 elements.closeForm.addEventListener('click', () => {
     elements.uploadForm.style.display = 'none';
 });
-
-
-//Search by title 
-
-elements.serachByTitleButton.addEventListener('click', () => {
-    //console.log("the button is clicked");
-    const searchTitle = elements.searchByTitleInput.value;
-    let searchTitleArr = searchTitle.split(' ');
-    // console.log(searchTitleArr);
-
-})
