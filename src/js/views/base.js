@@ -7,11 +7,12 @@
        uploadFormPost: document.querySelector('.formUpload'),
        uploadFormUploadFile: document.querySelector('#file'),
        uploadPhotoButton: document.querySelector('.send-photo'),
-       popupForm: document.getElementById('.form-popup'),
+       popupForm: document.querySelector('.form-popup'),
        formUploadButton: document.querySelector('.formUpload'),
        closeForm: document.querySelector('.cancel'),
        searchResPages: document.querySelector('.results_Photos'),
        serachButton: document.querySelector('.btn-outline-success'),
-       searchInput: document.querySelector('.form-control')
+       searchInput: document.querySelector('.form-control'),
+       pagination: document.querySelector('.pagination')
  };
 

@@ -9,12 +9,6 @@ import * as getFormInputs from './views/uploadView';
 import { writeNewPost } from './models/Upload';
 
 const state = {};
-let onCurrent = true;
-
-elements.searchCategory.addEventListener('change', () => {
-    onCurrent = true;
-    console.log(onCurrent);
-});
 /** 
  * SEARCH CONTROLLER
  */
@@ -38,25 +32,27 @@ const controlSearch = async (val) => {
             Object.keys(results).forEach(pic => {
                 if (results[pic].category === query && (val ? (results[pic].title.toLowerCase().search(value) !== -1) : true)) {
                     categoryResults.push(results[pic]);
-                
                 }
             });
-        } else if (onCurrent && query && query === 'All' || query === 'choose') {
+        } else if (query && query === 'All' || query === 'choose') {
             Object.keys(results).forEach(pic => {
                 if (val ? (results[pic].title.toLowerCase().search(value) !== -1) : true) {
                     categoryResults.push(results[pic]);
             
                 }
             });
-            onCurrent = false;
         }
         categoryResults.reverse();
+
+        
         categoryResults.forEach(el => {
             let storageReff = firebase.storage().ref(`images/${el.key}`);
             storageReff.getDownloadURL().then(function (url) {
-                searchView.renderResults([url]);
+                 searchView.renderResults([url]);
+                
             });
         });
+       
     } catch (err) {
         alert(err);
     }
@@ -72,7 +68,7 @@ elements.searchInput.addEventListener('keyup', event => {
 });
 
 elements.searchCategory.addEventListener('change', e => {
-    if (searchView.getSelectValue() !== 'Choose a categorie..') {
+    if (searchView.getSelectValue() !== 'choose') {
         e.preventDefault();
         elements.searchResPages.innerHTML = '';
         controlSearch();
@@ -100,10 +96,18 @@ uploadView.send().addEventListener('click', () => {
         console.log('Missing field!')
     }
 });
+
 //Form control
 elements.uploadPhotoButton.addEventListener('click', () => {
-    elements.uploadForm.style.display = "block";
+    elements.uploadForm.style.display = 'block';
 });
 elements.closeForm.addEventListener('click', () => {
     elements.uploadForm.style.display = 'none';
 });
+
+elements.formUploadButton.addEventListener('click', () => {
+    elements.popupForm.style.display = 'none';
+})
+
+// const dbRef = firebase.database().ref().child('Album');
+// dbRef.on('value', snap => console.log(snap.val()));
