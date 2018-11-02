@@ -12,7 +12,7 @@ elements.uploadFormUploadFile.addEventListener('change', (e) => {
 });
 
 export const writeNewPost = (title, username, category) => {
-  
+
   // Get a key for a new Post.
   const newPostKey = firebase.database().ref().child('Album').push().key;
   const postData = {
@@ -26,13 +26,12 @@ export const writeNewPost = (title, username, category) => {
   // Write the new post's data simultaneously in the Album list and the images post list.
   let updates = {};
   updates['Album/' + newPostKey] = postData;
-  return firebase.storage().ref().child('images/' + newPostKey).put(selectedFile).then(function (snapshot) {
-    console.log('Uploaded a blob or file!');
-  }).then(function (snapshot) {
-    let storage = firebase.storage();
-    let pathReference = storage.ref(`images/${selectedFileName}`);
-    console.log(pathReference);
-  }).then(function (snap) { return firebase.database().ref().update(updates) });
+  firebase.storage().ref().child('images/' + newPostKey).put(selectedFile).then(() => firebase.storage().ref().child('images/' + newPostKey).getDownloadURL()).then(snap => {
+    postData['downloadURL'] = snap;
+  }).then(() => {
+    console.log('Uploaded a file!');
+    firebase.database().ref().update(updates);
+  })
 }
 
 

@@ -12,7 +12,6 @@ const state = {};
 /** 
  * SEARCH CONTROLLER
  */
-
 //Order by Category
 const controlSearch = async (val) => {
     // 1) Get query from view
@@ -42,14 +41,14 @@ const controlSearch = async (val) => {
                 }
             });
         }
+      
         categoryResults.reverse();
 
         
         categoryResults.forEach(el => {
             let storageReff = firebase.storage().ref(`images/${el.key}`);
             storageReff.getDownloadURL().then(function (url) {
-                 searchView.renderResults([url]);
-                
+               searchView.renderResults([url]);
             });
         });
        
