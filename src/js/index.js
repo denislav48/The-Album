@@ -8,17 +8,12 @@ import { config } from './config/firebase.config';
 import * as getFormInputs from './views/uploadView';
 import { writeNewPost } from './models/Upload';
 
-// let data = ref.on('value', function (snapshot) {
-//     // Do whatever
-//     return snapshot.val();
-// });
-
 const state = {};
 
 /** 
  * SEARCH CONTROLLER
  */
-//Order by Category
+
 const controlSearch = async (page,val) => {
     // 1) Get query from view
     const query = searchView.getSelectValue();
@@ -85,8 +80,7 @@ elements.formUploadButton.addEventListener('click', () => {
     elements.popupForm.style.display = 'none';
 })
 
-// const dbRef = firebase.database().ref().child('Album');
-// dbRef.on('value', snap => console.log(snap.val()));
+//Pagination Control
 
 elements.navButtons.addEventListener('click', (e) => {
     if(e.target.classList.contains('pagination-button')){

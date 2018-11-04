@@ -1,14 +1,5 @@
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-
-
-}
-* {
-  box-sizing: border-box;
-  margin:0;
-  padding:0;
-}
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 .send-photo {
@@ -94,41 +85,23 @@ body {
   float: left;
 }
 
-.results {
-  width: 80%;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  top: 10%;
-}
-.results_Photos {
-  position: absolute;
-  width: 80%;
-  /* margin-left: auto;
-  margin-right: auto; */
-  left: 5%;
-  /* right: 0; */
-  top: 10%;
-}
+.results_Photos{
+  margin-top: 5%;
+  display: inline-block;
+  padding: 2% 7% 6% 11%;
+  }
 .pagination {
   clear: left;
   margin: 0 auto;
-  position: absolute;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 500px;
+  
 }
 .pagination-button {
   margin: 0 auto;
 }
 .nav-buttons {
-  margin: 5% auto;
-}
-.container {
-  width: 80%;
-  margin: 0 auto;
+  margin: 0
 }
