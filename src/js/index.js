@@ -8,13 +8,8 @@ import { config } from './config/firebase.config';
 import * as getFormInputs from './views/uploadView';
 import { writeNewPost } from './models/Upload';
 
-// let data = ref.on('value', function (snapshot) {
-//     // Do whatever
-//     return snapshot.val();
-// });
-
 const state = {};
-let a = [];
+
 /** 
  * SEARCH CONTROLLER
  */
@@ -22,8 +17,7 @@ let a = [];
 const controlSearch = async (val) => {
     // 1) Get query from view
     const query = searchView.getSelectValue();
-
-    //console.log(query);
+ 
     state.search = new Search(query);
     try {
         await state.search.getResults();
@@ -48,20 +42,8 @@ const controlSearch = async (val) => {
                 }
             });
         }
-      
         categoryResults.reverse();
-        console.log(categoryResults.length);
         searchView.renderResults(categoryResults);
-        // categoryResults.forEach((el, index, arr) => {
-        //     // let storageReff = firebase.storage().ref(`images/${el.key}`);
-        //     // storageReff.getDownloadURL().then(function (url) {
-        //     //    searchView.renderResults([url]);
-        //     // });
-        //     arr[index] = 
-        //    //console.log(el);
-        // });
-        // console.log(a);
-      
     } catch (err) {
         alert(err);
     }
@@ -117,6 +99,3 @@ elements.closeForm.addEventListener('click', () => {
 elements.formUploadButton.addEventListener('click', () => {
     elements.popupForm.style.display = 'none';
 })
-
-// const dbRef = firebase.database().ref().child('Album');
-// dbRef.on('value', snap => console.log(snap.val()));

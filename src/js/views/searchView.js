@@ -18,7 +18,6 @@ const renderButtons = (page, totalPhotos, photosPerPage) => {
 
     } else if (page < pages) {
         // Both buttons
-        // for (let i = ; i )
 
 
     } else if (page === pages && pages > 1) {

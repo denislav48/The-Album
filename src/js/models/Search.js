@@ -10,14 +10,9 @@ export default class Search {
 
     async getResults() {
         try {
-            //const res = await axios.get(`https://the-album-e3cc7.firebaseio.com/Album.json`);
             const res = firebase.database().ref('Album');
             await res.once('value').then((snapshot) => { this.result = snapshot.val() });
-            //this.result = res.data;
-            //console.log(this.result);
-
         } catch(err) {
-
             console.log(err);
         }
     }
