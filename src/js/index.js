@@ -8,15 +8,12 @@ import { config } from './config/firebase.config';
 import * as getFormInputs from './views/uploadView';
 import { writeNewPost } from './models/Upload';
 
-const state = {};
 
-/** 
- * SEARCH CONTROLLER
- */
+//SEARCH CONTROLLER
+const state = {};
 const controlSearch = async (page, val) => {
     // 1) Get query from view
     const query = searchView.getSelectValue();
-    //console.log(query);
     state.search = new Search(query);
     try {
         await state.search.getResults();
@@ -27,6 +24,7 @@ const controlSearch = async (page, val) => {
 }
 controlSearch();
 
+//Serach by title on Enter
 elements.searchInput.addEventListener('keyup', event => {
     event.stopPropagation();
     console.log(event.keyCode);
@@ -35,13 +33,12 @@ elements.searchInput.addEventListener('keyup', event => {
     }
 });
 
+//Search by category
 elements.searchCategory.addEventListener('change', e => {
-    if (searchView.getSelectValue() !== 'choose') {
-        e.preventDefault();
-        elements.searchResPages.innerHTML = '';
-        elements.paginationNavigation.innerHTML = '';
-        controlSearch();
-    }
+    e.preventDefault();
+    elements.searchResPages.innerHTML = '';
+    elements.paginationNavigation.innerHTML = '';
+    controlSearch();
 });
 
 //Search by title
@@ -72,7 +69,7 @@ uploadView.send().addEventListener('click', () => {
     }
 });
 
-//Form control
+//Form controls
 elements.uploadPhotoButton.addEventListener('click', () => {
     elements.uploadForm.style.display = 'block';
     elements.uploadPhotoButton.style.display = 'none';
@@ -98,38 +95,23 @@ elements.navButtons.addEventListener('click', (e) => {
         let page = e.target.value;
         currenPage = page;
 
- 
         if (lastPage !== currenPage) {
             val = elements.searchInput.value;
             elements.searchResPages.innerHTML = '';
             elements.paginationNavigation.innerHTML = '';
             controlSearch(page, val);
             lastPage = currenPage;
+
         }
     }
-
-    // Get all buttons with class="btn" inside the container
 });
-
-// elements.navButtons.addEventListener('click', (ev) => {
-//     if(ev.target.tagName === 'BUTTON' && ev.target.classList.contains('active')){
-//         console.log(ev.target);
-//         ev.target.
-
-// }})
-
-
-
-//        //something to try
-//        let btnContainer = document.querySelector(".nav-buttons"),
-//        btns = btnContainer.getElementsByClassName("pagination-button"),
-//        len = btns.length;
-
-//    for (let i = 0; i < len; i += 1) {
-//        btns[i].addEventListener('click', (event) => {
-//            let current = document.getElementsByClassName("active");
-//            current[0].className = current[0].className.replace(" active", "");
-//            event.target.className += " active";
-//        })
-//    }
-//    //
+//Active link change
+elements.paginationNavigation.addEventListener('click', (event) => {
+    console.log(event.target);
+    if (event.target.className = 'pagination-button') {
+        console.log('da');
+        let current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        event.target.classList.add('active');
+    }
+})

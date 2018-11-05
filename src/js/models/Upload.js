@@ -23,15 +23,19 @@ export const writeNewPost = (title, username, category) => {
     key: newPostKey
   };
 
-  // Write the new post's data simultaneously in the Album list and the images post list.
+  // Writting the new post's data simultaneously in the Album list and in the images post list.
   let updates = {};
   updates['Album/' + newPostKey] = postData;
-  firebase.storage().ref().child('images/' + newPostKey).put(selectedFile).then(() => firebase.storage().ref().child('images/' + newPostKey).getDownloadURL()).then(snap => {
-    postData['downloadURL'] = snap;
-  }).then(() => {
-    console.log('Uploaded a file!');
-    firebase.database().ref().update(updates);
-  })
+  firebase.storage().ref().child('images/' + newPostKey)
+    .put(selectedFile)
+    .then(() => firebase.storage().ref().child('images/' + newPostKey).getDownloadURL())
+    .then(snap => {
+      postData['downloadURL'] = snap;
+    })
+    .then(() => {
+      console.log('Uploaded a file!');
+      firebase.database().ref().update(updates);
+    })
 }
 
 
