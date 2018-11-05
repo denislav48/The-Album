@@ -13,6 +13,8 @@
        searchResPages: document.querySelector('.results_Photos'),
        serachButton: document.querySelector('.btn-outline-success'),
        searchInput: document.querySelector('.form-control'),
-       pagination: document.querySelector('.pagination')
+       pagination: document.querySelector('.pagination'),
+       paginationNavigation: document.querySelector('.nav-buttons'),
+       navButtons: document.querySelector('.nav-buttons')
  };
 

@@ -13,37 +13,15 @@ const state = {};
 /** 
  * SEARCH CONTROLLER
  */
-//Order by Category
-const controlSearch = async (val) => {
+
+const controlSearch = async (page,val) => {
     // 1) Get query from view
     const query = searchView.getSelectValue();
- 
+    //console.log(query);
     state.search = new Search(query);
     try {
         await state.search.getResults();
-        let results = state.search.result;
-        console.log(results);
-        let categoryResults = [];
-        let value;
-        if (val) {
-            value = val.toLowerCase();
-        }
-        if (query && query !== 'All' && query !== 'choose') {
-            Object.keys(results).forEach(pic => {
-                if (results[pic].category === query && (val ? (results[pic].title.toLowerCase().search(value) !== -1) : true)) {
-                    categoryResults.push(results[pic]);
-                }
-            });
-        } else if (query && query === 'All' || query === 'choose') {
-            Object.keys(results).forEach(pic => {
-                if (val ? (results[pic].title.toLowerCase().search(value) !== -1) : true) {
-                    categoryResults.push(results[pic]);
-            
-                }
-            });
-        }
-        categoryResults.reverse();
-        searchView.renderResults(categoryResults);
+        searchView.orderByCategory(state, val, query, page);
     } catch (err) {
         alert(err);
     }
@@ -62,6 +40,7 @@ elements.searchCategory.addEventListener('change', e => {
     if (searchView.getSelectValue() !== 'choose') {
         e.preventDefault();
         elements.searchResPages.innerHTML = '';
+        elements.paginationNavigation.innerHTML = '';
         controlSearch();
     }
 });
@@ -70,6 +49,7 @@ let val;
 elements.serachButton.addEventListener('click', e => {
     e.preventDefault();
     elements.searchResPages.innerHTML = '';
+    elements.paginationNavigation.innerHTML = '';
     val = elements.searchInput.value;
     controlSearch(val);
     console.log(val);
@@ -99,3 +79,14 @@ elements.closeForm.addEventListener('click', () => {
 elements.formUploadButton.addEventListener('click', () => {
     elements.popupForm.style.display = 'none';
 })
+
+//Pagination Control
+
+elements.navButtons.addEventListener('click', (e) => {
+    if(e.target.classList.contains('pagination-button')){
+    let page = e.target.value;
+    elements.searchResPages.innerHTML = '';
+    elements.paginationNavigation.innerHTML = '';
+    controlSearch(page);
+    }
+});

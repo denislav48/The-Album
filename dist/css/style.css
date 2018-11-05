@@ -85,11 +85,23 @@ body {font-family: Arial, Helvetica, sans-serif;}
   float: left;
 }
 
-.results {
-  width: 80%;
+.results_Photos{
+  margin-top: 5%;
+  display: inline-block;
+  padding: 2% 7% 6% 11%;
+  }
+.pagination {
+  clear: left;
+  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  
+}
+.pagination-button {
   margin: 0 auto;
 }
-.results_Photos {
-  margin: 5% auto;
-  text-align: center;
+.nav-buttons {
+  margin: 0
 }
