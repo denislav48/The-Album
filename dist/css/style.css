@@ -15,9 +15,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
   width: 280px;
 }
 
+/* .send-photo:active {
+  visibility: hidden;
+} */
+
 /* The popup form - hidden by default */
 .form-popup {
   display: none;
+  opacity: 0.95;
   position: fixed;
   bottom: 0;
   right: 15px;
@@ -55,7 +60,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   border: none;
   cursor: pointer;
   width: 100%;
-  margin-bottom:10px;
+  margin-bottom: 2%;
   opacity: 0.8;
 }
 
@@ -90,18 +95,23 @@ body {font-family: Arial, Helvetica, sans-serif;}
   display: inline-block;
   padding: 2% 7% 6% 11%;
   }
+
 .pagination {
-  clear: left;
-  margin: 0 auto;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  
+  margin: 0 auto;  
 }
+
 .pagination-button {
   margin: 0 auto;
 }
+
 .nav-buttons {
-  margin: 0
+  margin: 0 auto;
+}
+
+.send-file {
+margin-top: 2%;
+}
+
+#file {
+  visibility: hidden;
 }

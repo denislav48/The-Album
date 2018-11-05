@@ -25,7 +25,7 @@
             <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
                 <form class="categories">
                     <select class="select">
-                        <option value="choose">Choose a categorie..</option>
+                        <option value="choose" disabled>Choose a categorie..</option>
                         <option value="All">All</option>
                         <option value="animals">Animals</option>
                         <option value="nature">Nature</option>
@@ -41,19 +41,21 @@
         </header>
 
         <button class="send-photo">Upload a photo</button>
-        <div class="form-popup" id="myForm">
-            <form class="form-container">
-                <select class="select-upload">
-                    <option>Choose a categorie..</option>
-                    <option value="All">All</option>
-                    <option value="animals">Animals</option>
-                    <option value="nature">Nature</option>
-                    <option value="portraits">Portraits</option>
-                    <option value="selfies">Selfies</option>
-                </select>
 
-                <label for="file"><b>Choose a photo</b></label>
-                <input id="file" type="file" name="file">
+        <div class="form-popup" id="myForm">
+                <form class="form-container">
+                    <div class="input-group">
+                        <select class="select-upload custom-select" id="inputGroupSelect04">
+                            <option vlaue="choose">Choose a categorie..</option>
+                            <option value="animals">Animals</option>
+                            <option value="nature">Nature</option>
+                            <option value="portraits">Portraits</option>
+                            <option value="selfies">Selfies</option>
+                        </select>
+                    </div>
+                    <label class="send-file btn btn-success" for="file"><b>Choose a photo</b></label>
+                    <input id="file" type="file" name="file">
+    
 
                 <label for="name"><b>Name</b></label>
                 <input class="userInput" type="text" placeholder="Enter your name" name="name" required>
