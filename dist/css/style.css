@@ -105,7 +105,7 @@ select {
 .renderedPics {
   width: 150px;
   height: 150px;
-  margin: 10px;
+  margin: 0 15px 15px 15px;
   display: inline-block;
   border-radius: 10%;
   transition: transform .6s;
@@ -181,11 +181,14 @@ margin-top: 2%;
   margin: 0 auto;
 }
 .picInfo li:first-child {
-  margin-bottom: 10%;
+  margin-top: 5%;
 }
 
 .date{
-  color: #722F58;
+  color: #291A32;
   font-size: 120%;
   font-weight: bold;
+}
+.list-inline-item:not(:last-child) {
+  margin-right: 0;
 }

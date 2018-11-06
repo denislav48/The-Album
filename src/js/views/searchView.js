@@ -32,28 +32,34 @@ const renderButtons = (page, totalPhotos, photosPerPage) => {
 const renderPhoto = photo => {
     const markup = `
         <div class="picFrame myImg">
+            <ul class="picInfo list-inline mx-auto justify-content-center">
+                <li class="list-inline-item"><span class="date">${photo.title.split('').splice(0,15).join('')}</span></li>            
+            </ul>
             <img class="renderedPics" src="${photo.downloadURL} alt="${photo.title}"> 
             <ul class="picInfo list-inline mx-auto justify-content-center">
                 <li class="list-inline-item">Posted by <span class="name">${photo.username}</span></li>
-                <li class="list-inline-item">On: <span class="date">${photo.date.split('T').splice(0, 1)}</span></li>            
+                <li class="list-inline-item"><span class="date">${photo.date.split('T').splice(0, 1)}</span></li>            
             </ul>
         </div>
     `;
     elements.searchResPages.insertAdjacentHTML('beforeend', markup);
 };
 
-const renderResults = (photos, page = 1, photosPerPage = 15) => {
+const renderResults = (photos, page = 1, photosPerPage = 10) => {
     const start = (page - 1) * photosPerPage,
         end = page * photosPerPage;
     photos.slice(start, end).forEach(renderPhoto);
-    renderButtons(page, photos.length, photosPerPage);
+
+    if (page === 1) {
+        renderButtons(page, photos.length, photosPerPage);
+    }
 
 }
 
 //Search by category and title
 export const orderByCategory = (state, val, query, page) => {
     let results = state.search.result;
-    console.log(results);
+
     let categoryResults = [];
     let value;
 
@@ -77,5 +83,6 @@ export const orderByCategory = (state, val, query, page) => {
     categoryResults.reverse();
     console.log(categoryResults.length);
     renderResults(categoryResults, page);
+
 }
 
