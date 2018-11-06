@@ -88,30 +88,46 @@ elements.formUploadButton.addEventListener('click', () => {
 })
 
 //Pagination Control
-let currenPage,
-    lastPage;
-elements.navButtons.addEventListener('click', (e) => {
-    if (e.target.classList.contains('pagination-button')) {
-        let page = e.target.value;
-        currenPage = page;
+// let currenPage,
+//     lastPage;
+// elements.navButtons.addEventListener('click', (e) => {
+//     if (e.target.classList.contains('pagination-button')) {
+//         let page = e.target.value;
+//         currenPage = page;
 
-        if (lastPage !== currenPage) {
-            val = elements.searchInput.value;
-            elements.searchResPages.innerHTML = '';
-            elements.paginationNavigation.innerHTML = '';
-            controlSearch(page, val);
-            lastPage = currenPage;
+//         if (lastPage !== currenPage) {
+//             val = elements.searchInput.value;
+//             elements.searchResPages.innerHTML = '';
+//             elements.paginationNavigation.innerHTML = '';
+//             controlSearch(page, val);
+//             lastPage = currenPage;
+            
+//         }
+//     }
+// });
 
-        }
-    }
-});
-//Active link change
-elements.paginationNavigation.addEventListener('click', (event) => {
-    console.log(event.target);
-    if (event.target.className = 'pagination-button') {
-        console.log('da');
-        let current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        event.target.classList.add('active');
-    }
-})
+let butts = document.querySelectorAll('.pagination-button');
+
+
+// //Active link change
+
+// elements.navButtons.addEventListener('click', (event) => {
+//     // let current;
+//     // console.log(event.target);
+//     // if (event.target.tagName === 'BUTTON') {
+//     //     console.log('da');
+//     //     if (!event.target.classList.contains('active')) {
+//     //         current = document.querySelector('.active');
+//     //         current.classList.remove('active');
+//     //             event.target.classList.add('active');
+//     //     }
+//     // }
+
+//     let activeEl = document.querySelectorAll('.nav-buttons button');
+//     activeEl.forEach(el => {
+//         console.log(el);
+//         el.classList.remove('active');
+//     });
+//     event.target.classList.add('active');
+// })
+

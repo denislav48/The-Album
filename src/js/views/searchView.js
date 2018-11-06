@@ -35,13 +35,14 @@ const renderPhoto = photo => {
             <img class="renderedPics" src="${photo.downloadURL} alt="${photo.title}"> 
             <ul class="picInfo list-inline mx-auto justify-content-center">
                 <li class="list-inline-item">Posted by <span class="name">${photo.username}</span></li>
-                <li class="list-inline-item">On: <span class="date">${photo.date.split('T').splice(0,1)}</span></li>            
+                <li class="list-inline-item">On: <span class="date">${photo.date.split('T').splice(0, 1)}</span></li>            
             </ul>
         </div>
     `;
     elements.searchResPages.insertAdjacentHTML('beforeend', markup);
 };
-export const renderResults = (photos, page = 1, photosPerPage = 15) => {
+
+const renderResults = (photos, page = 1, photosPerPage = 15) => {
     const start = (page - 1) * photosPerPage,
         end = page * photosPerPage;
     photos.slice(start, end).forEach(renderPhoto);
@@ -49,6 +50,7 @@ export const renderResults = (photos, page = 1, photosPerPage = 15) => {
 
 }
 
+//Search by category and title
 export const orderByCategory = (state, val, query, page) => {
     let results = state.search.result;
     console.log(results);
