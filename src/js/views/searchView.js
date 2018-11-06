@@ -31,8 +31,12 @@ const renderButtons = (page, totalPhotos, photosPerPage) => {
 
 const renderPhoto = photo => {
     const markup = `
-        <div class="picFrame">
+        <div class="picFrame myImg">
             <img class="renderedPics" src="${photo.downloadURL} alt="${photo.title}"> 
+            <ul class="picInfo list-inline mx-auto justify-content-center">
+                <li class="list-inline-item">Posted by <span class="name">${photo.username}</span></li>
+                <li class="list-inline-item">On: <span class="date">${photo.date.split('T').splice(0,1)}</span></li>            
+            </ul>
         </div>
     `;
     elements.searchResPages.insertAdjacentHTML('beforeend', markup);
