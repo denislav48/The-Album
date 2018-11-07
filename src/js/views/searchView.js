@@ -4,9 +4,9 @@ export const getSelectValue = () => elements.searchCategory.value;
 
 const createButton = (page) => {
     if (page === 1) {
-        return `<button class="pagination-button active" type="button" value="${page}"">${page}</button>`
+        return `<button class="btn pagination-button active" type="button" value="${page}"">${page}</button>`
     } else {
-        return `<button class="pagination-button" type="button" value="${page}"">${page}</button>`
+        return `<button class="btn pagination-button" type="button" value="${page}"">${page}</button>`
     }
 };
 
@@ -50,6 +50,7 @@ const renderResults = (photos, page = 1, photosPerPage = 10) => {
         end = page * photosPerPage;
     photos.slice(start, end).forEach(renderPhoto);
 
+//Render buttons only on new search
     if (page === 1) {
         renderButtons(page, photos.length, photosPerPage);
     }
@@ -58,8 +59,7 @@ const renderResults = (photos, page = 1, photosPerPage = 10) => {
 
 //Search by category and title
 export const orderByCategory = (state, val, query, page) => {
-    let results = state.search.result;
-
+    const results = state.search.result;
     let categoryResults = [];
     let value;
 
@@ -81,8 +81,6 @@ export const orderByCategory = (state, val, query, page) => {
     }
 
     categoryResults.reverse();
-    console.log(categoryResults.length);
     renderResults(categoryResults, page);
-
 }
 
