@@ -29,7 +29,6 @@ export const events = () => {
         val = elements.searchInput.value;
         controlSearch(undefined, val);
         elements.searchInput.value = '';
-        console.log(val);
     });
 
     //Upload COntroller
@@ -45,7 +44,7 @@ export const events = () => {
             elements.uploadFormUploadFile.value = '';
             elements.uploadFormSelect.value = '';
         } else {
-            console.log('Missing field!')
+            alert('Missing field!');
         }
     });
 
@@ -80,7 +79,6 @@ export const events = () => {
             let activeEl = document.querySelectorAll('.nav-buttons button');
             console.log(activeEl);
             activeEl.forEach(el => {
-                console.log(el);
                 el.classList.remove('active');
                 event.target.classList.add('active');
             });

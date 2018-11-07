@@ -2,7 +2,6 @@ import * as firebase from 'firebase';
 import { elements } from '../views/base';
 
 //take the photo file name
-
 let selectedFile,
   selectedFileName;
 elements.uploadFormUploadFile.addEventListener('change', (e) => {

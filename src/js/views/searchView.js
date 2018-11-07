@@ -17,23 +17,23 @@ const renderButtons = (page, totalPhotos, photosPerPage) => {
     let button = createButton(1);
 
     if (page === 1 && pages === 1) {
-        // Only button to go to next page
+        //if there is only one button
         button = `${createButton(page)}`;
     } else if (page <= pages) {
-        // Both buttons
+        //if there are more buttons
         for (let i = 2; i <= pages; i += 1) {
             button += `${createButton(i)}`;
         }
     }
 
-    elements.paginationNavigation.insertAdjacentHTML('beforeend', button);
+    elements.paginationNavigation.innerHTML += button;
 }
 
 const renderPhoto = photo => {
 
     const empty = `
-        <p>No results found</p>
-    `;
+    <p class="error justify-content-center">No results found</p>
+`;
     if (photo) {
         const markup = `
         <div class="picFrame myImg">
@@ -47,13 +47,11 @@ const renderPhoto = photo => {
             </ul>
         </div>
     `;
-    
-        elements.searchResPages.insertAdjacentHTML('beforeend', markup);
+
+        elements.searchResPages.innerHTML += markup;
     } else {
-        const empty = `
-        <p class="error justify-content-center">No results found</p>
-    `;
-        elements.searchResPages.insertAdjacentHTML('beforeend', empty);
+
+        elements.searchResPages.innerHTML += empty;
         elements.paginationNavigation.innerHTML = '';
     }
 };
@@ -61,7 +59,7 @@ const renderPhoto = photo => {
 const renderResults = (photos, page = 1, photosPerPage = 10) => {
     const start = (page - 1) * photosPerPage,
         end = page * photosPerPage;
-    
+
 
     if (page === 1) {
         renderButtons(page, photos.length, photosPerPage);
@@ -96,7 +94,7 @@ export const orderByCategory = (state, val, query, page) => {
 
     categoryResults.reverse();
     //console.log(categoryResults);
-    if(categoryResults.length > 0) {
+    if (categoryResults.length > 0) {
         renderResults(categoryResults, page);
     } else {
         renderResults([undefined], page);
