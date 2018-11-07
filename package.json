@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "@types/firebase": "^3.2.1",
-    "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "firebase": "^5.5.5",
     "fractional": "^1.0.0",
