@@ -4,9 +4,9 @@ export const getSelectValue = () => elements.searchCategory.value;
 
 const createButton = (page) => {
     if (page === 1) {
-        return `<button class="pagination-button active" type="button" value="${page}"">${page}</button>`
+        return `<button class="btn pagination-button active" type="button" value="${page}"">${page}</button>`
     } else {
-        return `<button class="pagination-button" type="button" value="${page}"">${page}</button>`
+        return `<button class="btn pagination-button" type="button" value="${page}"">${page}</button>`
     }
 };
 
@@ -33,7 +33,7 @@ const renderPhoto = photo => {
     const markup = `
         <div class="picFrame myImg">
             <ul class="picInfo list-inline mx-auto justify-content-center">
-                <li class="list-inline-item"><span class="date">${photo.title.split('').splice(0,15).join('')}</span></li>            
+                <li class="list-inline-item"><span class="date">${photo.title.length <= 20 ? photo.title : photo.title.split('').splice(0,21).join('') + '...'}</span></li>            
             </ul>
             <img class="renderedPics" src="${photo.downloadURL} alt="${photo.title}"> 
             <ul class="picInfo list-inline mx-auto justify-content-center">

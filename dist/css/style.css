@@ -132,11 +132,23 @@ select {
 
 .results_Photos{
   margin-top: 5%;
-  margin-left: 9%;
+  margin-left: 8%;
   display: inline-block;
+  
   /* padding: 0, 5%, 5%, 0; */
   
   }
+
+  .results{
+    border: 1px solid transparent;
+    border-style: inset;
+  }
+
+  .navbar {
+    border:1px solid transparent;
+    border-style: inset;
+  }
+
 
 .pagination {
   margin: 0 auto;  
@@ -145,11 +157,14 @@ select {
 
 }
 
+
+
 .pagination-button {
   background: #203958;
   border-color: #203958;
   color: #268C4A;
   opacity: 0.7;
+  margin-right: 1px;
   
 }
 
@@ -185,7 +200,7 @@ margin-top: 2%;
 }
 
 .date{
-  color: #291A32;
+  color: rgb(76, 51, 90);
   font-size: 120%;
   font-weight: bold;
 }

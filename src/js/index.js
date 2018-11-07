@@ -85,6 +85,7 @@ elements.closeForm.addEventListener('click', () => {
 
 elements.formUploadButton.addEventListener('click', () => {
     elements.popupForm.style.display = 'none';
+    elements.uploadPhotoButton.style.display = 'block';
 })
 
 //Pagination Control
