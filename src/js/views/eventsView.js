@@ -28,6 +28,7 @@ export const events = () => {
         elements.paginationNavigation.innerHTML = '';
         val = elements.searchInput.value;
         controlSearch(undefined, val);
+        elements.searchInput.value = '';
         console.log(val);
     });
 

@@ -30,10 +30,15 @@ const renderButtons = (page, totalPhotos, photosPerPage) => {
 }
 
 const renderPhoto = photo => {
-    const markup = `
+
+    const empty = `
+        <p>No results found</p>
+    `;
+    if (photo) {
+        const markup = `
         <div class="picFrame myImg">
             <ul class="picInfo list-inline mx-auto justify-content-center">
-                <li class="list-inline-item"><span class="date">${photo.title.length <= 20 ? photo.title : photo.title.split('').splice(0,21).join('') + '...'}</span></li>            
+                <li class="list-inline-item"><span class="date">${photo.title.length <= 20 ? photo.title : photo.title.split('').splice(0, 21).join('') + '...'}</span></li>            
             </ul>
             <img class="renderedPics" src="${photo.downloadURL} alt="${photo.title}"> 
             <ul class="picInfo list-inline mx-auto justify-content-center">
@@ -42,18 +47,27 @@ const renderPhoto = photo => {
             </ul>
         </div>
     `;
-    elements.searchResPages.insertAdjacentHTML('beforeend', markup);
+    
+        elements.searchResPages.insertAdjacentHTML('beforeend', markup);
+    } else {
+        const empty = `
+        <p class="error justify-content-center">No results found</p>
+    `;
+        elements.searchResPages.insertAdjacentHTML('beforeend', empty);
+        elements.paginationNavigation.innerHTML = '';
+    }
 };
 
 const renderResults = (photos, page = 1, photosPerPage = 10) => {
     const start = (page - 1) * photosPerPage,
         end = page * photosPerPage;
-    photos.slice(start, end).forEach(renderPhoto);
+    
 
     if (page === 1) {
         renderButtons(page, photos.length, photosPerPage);
     }
 
+    photos.slice(start, end).forEach(renderPhoto);
 }
 
 //Search by category and title
@@ -81,8 +95,11 @@ export const orderByCategory = (state, val, query, page) => {
     }
 
     categoryResults.reverse();
-    console.log(categoryResults.length);
-    renderResults(categoryResults, page);
-
+    //console.log(categoryResults);
+    if(categoryResults.length > 0) {
+        renderResults(categoryResults, page);
+    } else {
+        renderResults([undefined], page);
+    }
 }
 
