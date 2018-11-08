@@ -13,9 +13,9 @@ export const controlSearch = async (page, val) => {
     state.search = new Search(query);
     try {
         await state.search.getResults();
-        searchView.orderByCategory(state, val, query, page);
+        searchView.orderResult(state, val, query, page);
     } catch (err) {
-        alert(err);
+        console.log(err);
     }
 }
 //Load all photos

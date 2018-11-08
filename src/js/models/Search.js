@@ -8,8 +8,9 @@ export default class Search {
     }
     async getResults() {
         try {
-            const res = firebase.database().ref('Album');
-            await res.once('value').then((snapshot) => { this.result = snapshot.val() });
+            //reference to firebase datababse ALbum object
+            const databaseReference = firebase.database().ref('Album');
+            await databaseReference.once('value').then((snapshot) => { this.result = snapshot.val() });
         } catch(err) {
             console.log(err);
         }

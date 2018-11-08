@@ -3,8 +3,19 @@ import { controlSearch } from '../index'
 import { writeNewPost } from '../models/Upload';
 
 export const events = () => {
+    //Search by title
+    let val;
+    elements.serachButton.addEventListener('click', e => {
+        elements.searchResPages.innerHTML = '';
+        elements.navButtons.innerHTML = '';
+        val = elements.searchInput.value;
+        controlSearch(undefined, val);
+        elements.searchInput.value = '';
+    });
+
     //Serach by title on Enter
     elements.searchInput.addEventListener('keyup', event => {
+        //prevent bubbling
         event.stopPropagation();
         console.log(event.keyCode);
         if (event.keyCode === 13) {
@@ -14,25 +25,14 @@ export const events = () => {
 
     //Search by category
     elements.searchCategory.addEventListener('change', e => {
+        //prevent page reload
         e.preventDefault();
         elements.searchResPages.innerHTML = '';
-        elements.paginationNavigation.innerHTML = '';
+        elements.navButtons.innerHTML = '';
         controlSearch();
     });
 
-    //Search by title
-    let val;
-    elements.serachButton.addEventListener('click', e => {
-        e.preventDefault();
-        elements.searchResPages.innerHTML = '';
-        elements.paginationNavigation.innerHTML = '';
-        val = elements.searchInput.value;
-        controlSearch(undefined, val);
-        elements.searchInput.value = '';
-    });
-
-    //Upload COntroller
-
+    //Upload Controller
     elements.uploadFormPost.addEventListener('click', () => {
         let title = elements.uploadFormTitle.value,
             user = elements.uploadFormUserName.value,
@@ -69,26 +69,26 @@ export const events = () => {
 
     //Pagination Control
     let currenPage,
-        lastPage;
-        let lastResult,
+        lastPage,
+        lastResult,
         currentResult;
     elements.navButtons.addEventListener('click', (e) => {
         if (e.target.classList.contains('pagination-button')) {
+
             let page = e.target.value;
             currenPage = page;
             let buttons = document.querySelectorAll('.nav-buttons button');
-           // console.log(buttons);
-
             currentResult = document.querySelector('.results_Photos').innerHTML;
             
             buttons.forEach(el => {
                 el.classList.remove('active');
                 event.target.classList.add('active');
             });
-            
 
-            // Check if the page was changed in the same category or if the category was changed. Without the last condition if we change category and try to load immediately 
-            //  the same page number nothing will happen.
+           /* Check if the page was changed in the same category or if the category was changed.
+            * Without the last condition if we change category and try to load immediately 
+            *the same page number nothing will happen.
+            */
             if (lastPage !== currenPage || lastResult !== currentResult) {
                 lastPage = currenPage;
                 elements.searchResPages.innerHTML = '';

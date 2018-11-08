@@ -14,7 +14,6 @@
        serachButton: document.querySelector('.btn-outline-success'),
        searchInput: document.querySelector('.form-control'),
        pagination: document.querySelector('.pagination'),
-       paginationNavigation: document.querySelector('.nav-buttons'),
        navButtons: document.querySelector('.nav-buttons'),
        allNavButtons: document.getElementsByClassName('.pagination-button'),
        butWithActiveClass: document.getElementsByClassName('.active')

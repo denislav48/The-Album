@@ -12,21 +12,13 @@ const createButton = (page) => {
 };
 
 //Render pagination buttons
-const renderButtons = (page, totalPhotos, photosPerPage) => {
+const renderButtons = (totalPhotos, photosPerPage) => {
     const pages = Math.ceil(totalPhotos / photosPerPage);
 
-    let buttons;
-    //If there is one page
-    if (page === 1 && pages === 1) {
-        //if there is only one button
-        buttons = ``;
-        //If there is more than one page
-    } else if (page <= pages) {
+    let buttons = '';
         for (let i = 1; i <= pages; i += 1) {
             buttons += `${createButton(i)}`;
         }
-    }
-
     elements.navButtons.innerHTML = buttons;
 }
 //Photos rendering template
@@ -48,7 +40,7 @@ const renderPhoto = photo => {
                 <img class="renderedPics" src="${photo.downloadURL} alt="${photo.title}"> 
                 <ul class="picInfo list-inline mx-auto justify-content-center">
                     <li class="list-inline-item">Posted by <span class="name">${photo.username}</span></li>
-                    <li class="list-inline-item"><span class="date">${photo.date.split('T').splice(0, 1)}</span></li>            
+                    <li class="list-inline-item"><span class="date">${photo.date.split('T').slice(0, 1)}</span></li>            
                 </ul>
              </div>
         `;
@@ -71,14 +63,14 @@ const renderResults = (photos, page = 1, photosPerPage = 10) => {
 
     //Render buttons only on new search
     if (page === 1) {
-        renderButtons(page, photos.length, photosPerPage);
+        renderButtons(photos.length, photosPerPage);
     }
 
     photos.slice(start, end).forEach(photo => renderPhoto(photo));
 }
 
 //Search by category and title
-export const orderByCategory = (state, val, query, page) => {
+export const orderResult = (state, val, query, page) => {
     const results = state.search.result;
     let categoryResults = [];
     let value;
