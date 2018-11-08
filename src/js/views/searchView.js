@@ -2,6 +2,7 @@ import { elements } from './base';
 
 export const getSelectValue = () => elements.searchCategory.value;
 
+//Crate pagination buttons, one of them with class active
 const createButton = (page) => {
     if (page === 1) {
         return `<button class="btn pagination-button active" type="button" value="${page}"">${page}</button>`
@@ -10,63 +11,71 @@ const createButton = (page) => {
     }
 };
 
-
+//Render pagination buttons
 const renderButtons = (page, totalPhotos, photosPerPage) => {
     const pages = Math.ceil(totalPhotos / photosPerPage);
 
-    let button = createButton(1);
-
+    let buttons = createButton(1);
+    //If there is one page
     if (page === 1 && pages === 1) {
         //if there is only one button
-        button = `${createButton(page)}`;
+        buttons = `${createButton(page)}`;
+
+        //If there is more than one page
     } else if (page <= pages) {
-        //if there are more buttons
         for (let i = 2; i <= pages; i += 1) {
-            button += `${createButton(i)}`;
+            buttons += `${createButton(i)}`;
         }
     }
 
-    elements.paginationNavigation.innerHTML += button;
+    elements.paginationNavigation.innerHTML = buttons;
 }
-
+//Photos rendering template
 const renderPhoto = photo => {
 
-    const empty = `
-    <p class="error justify-content-center">No results found</p>
-`;
+    function isTitleLessThan20Symbols() {
+        if (photo.title.length <= 20) {
+            return photo.title;
+        } else {
+            return photo.title.split('').splice(0, 21).join('') + '...';
+        }
+    }
     if (photo) {
         const markup = `
-        <div class="picFrame myImg">
-            <ul class="picInfo list-inline mx-auto justify-content-center">
-                <li class="list-inline-item"><span class="date">${photo.title.length <= 20 ? photo.title : photo.title.split('').splice(0, 21).join('') + '...'}</span></li>            
-            </ul>
-            <img class="renderedPics" src="${photo.downloadURL} alt="${photo.title}"> 
-            <ul class="picInfo list-inline mx-auto justify-content-center">
-                <li class="list-inline-item">Posted by <span class="name">${photo.username}</span></li>
-                <li class="list-inline-item"><span class="date">${photo.date.split('T').splice(0, 1)}</span></li>            
-            </ul>
-        </div>
-    `;
+            <div class="picFrame myImg">
+                <ul class="picInfo list-inline mx-auto justify-content-center">
+                    <li class="list-inline-item"><span class="date">${isTitleLessThan20Symbols()}</span></li>            
+                </ul>
+                <img class="renderedPics" src="${photo.downloadURL} alt="${photo.title}"> 
+                <ul class="picInfo list-inline mx-auto justify-content-center">
+                    <li class="list-inline-item">Posted by <span class="name">${photo.username}</span></li>
+                    <li class="list-inline-item"><span class="date">${photo.date.split('T').splice(0, 1)}</span></li>            
+                </ul>
+             </div>
+        `;
 
         elements.searchResPages.innerHTML += markup;
     } else {
+        const empty = `
+            <p class="error">No results found</p>
+        `;
 
-        elements.searchResPages.innerHTML += empty;
+        elements.searchResPages.innerHTML = empty;
         elements.paginationNavigation.innerHTML = '';
     }
 };
 
+//Reder photos and buttons on the page
 const renderResults = (photos, page = 1, photosPerPage = 10) => {
     const start = (page - 1) * photosPerPage,
         end = page * photosPerPage;
 
-
-//Render buttons only on new search
+    //Render buttons only on new search
     if (page === 1) {
         renderButtons(page, photos.length, photosPerPage);
     }
 
-    photos.slice(start, end).forEach(renderPhoto);
+    photos.slice(start, end).forEach(photo => renderPhoto(photo));
 }
 
 //Search by category and title
@@ -78,13 +87,13 @@ export const orderByCategory = (state, val, query, page) => {
     if (val) {
         value = val.toLowerCase();
     }
-    if (query && query !== 'All') {
+    if (query !== 'All') {
         Object.keys(results).forEach(pic => {
             if (results[pic].category === query && (val ? (results[pic].title.toLowerCase().search(value) !== -1) : true)) {
                 categoryResults.push(results[pic]);
             }
         });
-    } else if (query && query === 'All') {
+    } else if (query === 'All') {
         Object.keys(results).forEach(pic => {
             if (val ? (results[pic].title.toLowerCase().search(value) !== -1) : true) {
                 categoryResults.push(results[pic]);
@@ -93,11 +102,12 @@ export const orderByCategory = (state, val, query, page) => {
     }
 
     categoryResults.reverse();
-    //console.log(categoryResults);
+    
     if (categoryResults.length > 0) {
         renderResults(categoryResults, page);
+        //If nothing meets search criteria
     } else {
-        renderResults([undefined], page);
+        renderResults([null], page);
     }
 }
 

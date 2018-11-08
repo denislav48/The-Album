@@ -73,24 +73,20 @@ export const events = () => {
     elements.navButtons.addEventListener('click', (e) => {
         if (e.target.classList.contains('pagination-button')) {
             let page = e.target.value;
-
             currenPage = page;
-
             let activeEl = document.querySelectorAll('.nav-buttons button');
             console.log(activeEl);
+
             activeEl.forEach(el => {
                 el.classList.remove('active');
                 event.target.classList.add('active');
             });
 
+            //Check for page change
             if (lastPage !== currenPage) {
                 lastPage = currenPage;
-                val = elements.searchInput.value;
                 elements.searchResPages.innerHTML = '';
-                if (currenPage === 1) {
-                    elements.paginationNavigation.innerHTML = '';
-                }
-                controlSearch(page, val);
+                controlSearch(page,val);
             }
         }
     });
