@@ -70,23 +70,33 @@ export const events = () => {
     //Pagination Control
     let currenPage,
         lastPage;
+        let lastResult,
+        currentResult;
     elements.navButtons.addEventListener('click', (e) => {
         if (e.target.classList.contains('pagination-button')) {
             let page = e.target.value;
             currenPage = page;
-            let activeEl = document.querySelectorAll('.nav-buttons button');
-            console.log(activeEl);
+            let buttons = document.querySelectorAll('.nav-buttons button');
+           // console.log(buttons);
 
-            activeEl.forEach(el => {
+            currentResult = document.querySelector('.results_Photos').innerHTML;
+            
+            buttons.forEach(el => {
                 el.classList.remove('active');
                 event.target.classList.add('active');
             });
+            
 
-            //Check for page change
-            if (lastPage !== currenPage) {
+            // Check if the page was changed in the same category or if the category was changed. Without the last condition if we change category and try to load immediately 
+            //  the same page number nothing will happen.
+            if (lastPage !== currenPage || lastResult !== currentResult) {
                 lastPage = currenPage;
                 elements.searchResPages.innerHTML = '';
-                controlSearch(page,val);
+
+                //get the content after it is rendered
+                new Promise(() => controlSearch(page)).then(() => {
+                    lastResult = document.querySelector('.results_Photos').innerHTML;
+                })
             }
         }
     });

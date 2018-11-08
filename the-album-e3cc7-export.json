@@ -1,0 +1,268 @@
+{
+  "Album" : {
+    "-LQJAG1mBX6ttREYO_ue" : {
+      "category" : "animals",
+      "date" : "2018-11-02T11:26:55.200Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQJAG1mBX6ttREYO_ue?alt=media&token=9e47e8ae-38ee-4c5a-85ed-fa53ab162360",
+      "key" : "-LQJAG1mBX6ttREYO_ue",
+      "title" : "Gorilla",
+      "username" : "John"
+    },
+    "-LQJAP8muNST8LY-wISa" : {
+      "category" : "animals",
+      "date" : "2018-11-02T11:27:32.512Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQJAP8muNST8LY-wISa?alt=media&token=4eac8eb1-b4ef-4f55-81c8-f33f96d9328e",
+      "key" : "-LQJAP8muNST8LY-wISa",
+      "title" : "funny squirrel",
+      "username" : "John"
+    },
+    "-LQJAVzG0WIIud2mo2eP" : {
+      "category" : "animals",
+      "date" : "2018-11-02T11:28:00.511Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQJAVzG0WIIud2mo2eP?alt=media&token=bf1c6fe2-cecc-4f5e-acd7-d22e4918a0d5",
+      "key" : "-LQJAVzG0WIIud2mo2eP",
+      "title" : "tiger",
+      "username" : "John"
+    },
+    "-LQJAYwdAtejXCp84t23" : {
+      "category" : "animals",
+      "date" : "2018-11-02T11:28:12.632Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQJAYwdAtejXCp84t23?alt=media&token=3916e761-b429-4808-aa21-6ee83e917bb2",
+      "key" : "-LQJAYwdAtejXCp84t23",
+      "title" : "tigers",
+      "username" : "John"
+    },
+    "-LQJArWxtW2-1DM7a6q6" : {
+      "category" : "nature",
+      "date" : "2018-11-02T11:29:32.849Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQJArWxtW2-1DM7a6q6?alt=media&token=0f6c9f5a-60c9-4eb6-a829-83f7ad7eed6a",
+      "key" : "-LQJArWxtW2-1DM7a6q6",
+      "title" : "Deep in the woods",
+      "username" : "Denislav"
+    },
+    "-LQJAwaBLI1K4c3wikAO" : {
+      "category" : "nature",
+      "date" : "2018-11-02T11:29:53.600Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQJAwaBLI1K4c3wikAO?alt=media&token=a94f14a1-8f4b-44c1-a720-57582028a4e3",
+      "key" : "-LQJAwaBLI1K4c3wikAO",
+      "title" : "sunset",
+      "username" : "Denislav"
+    },
+    "-LQJB78guMsUwgkzp2f2" : {
+      "category" : "portraits",
+      "date" : "2018-11-02T11:30:40.928Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQJB78guMsUwgkzp2f2?alt=media&token=d695526b-4742-4dbe-a452-7d7974730a87",
+      "key" : "-LQJB78guMsUwgkzp2f2",
+      "title" : "Mysterious",
+      "username" : "John"
+    },
+    "-LQJBI03yxuOz48Wt2sq" : {
+      "category" : "selfies",
+      "date" : "2018-11-02T11:31:25.432Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQJBI03yxuOz48Wt2sq?alt=media&token=6b1bd1a4-122c-4d6d-bbb4-c7ade7e48937",
+      "key" : "-LQJBI03yxuOz48Wt2sq",
+      "title" : "Smile",
+      "username" : "Hellena"
+    },
+    "-LQJBLdwepcqN3_tKUhV" : {
+      "category" : "selfies",
+      "date" : "2018-11-02T11:31:40.336Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQJBLdwepcqN3_tKUhV?alt=media&token=77d1e2cf-b1c5-44fe-94ae-94ce16a33f22",
+      "key" : "-LQJBLdwepcqN3_tKUhV",
+      "title" : "funny selfie",
+      "username" : "Hellena"
+    },
+    "-LQTaAYbMhxCJEuNvZMs" : {
+      "category" : "animals",
+      "date" : "2018-11-04T12:00:43.970Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQTaAYbMhxCJEuNvZMs?alt=media&token=427a0d45-e6d7-4047-8822-5c24d309b796",
+      "key" : "-LQTaAYbMhxCJEuNvZMs",
+      "title" : "Cat",
+      "username" : "Denislav Stoyanov"
+    },
+    "-LQTaG4rGirnpoqub-B-" : {
+      "category" : "animals",
+      "date" : "2018-11-04T12:01:06.642Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQTaG4rGirnpoqub-B-?alt=media&token=c2438460-781b-47f8-96fb-5604b6105234",
+      "key" : "-LQTaG4rGirnpoqub-B-",
+      "title" : "rabbit",
+      "username" : "Denislav Stoyanov"
+    },
+    "-LQTaOtWjbsc-mMb2h5H" : {
+      "category" : "animals",
+      "date" : "2018-11-04T12:01:42.716Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQTaOtWjbsc-mMb2h5H?alt=media&token=4ac8a8e7-fc91-4d77-8b8f-d4e698cf7c0c",
+      "key" : "-LQTaOtWjbsc-mMb2h5H",
+      "title" : "flying squrrel",
+      "username" : "Denislav Stoyanov"
+    },
+    "-LQTaYxiNloyr1eKCAqo" : {
+      "category" : "animals",
+      "date" : "2018-11-04T12:02:23.945Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQTaYxiNloyr1eKCAqo?alt=media&token=1c8dee31-e2da-4f4f-8b38-62640dff64c0",
+      "key" : "-LQTaYxiNloyr1eKCAqo",
+      "title" : "Cat",
+      "username" : "Denislav Stoyanov"
+    },
+    "-LQTakK4bjpGHFMlF_dR" : {
+      "category" : "nature",
+      "date" : "2018-11-04T12:03:14.592Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQTakK4bjpGHFMlF_dR?alt=media&token=241471f6-5cb3-45dd-9f46-ac5124dbe9f4",
+      "key" : "-LQTakK4bjpGHFMlF_dR",
+      "title" : "mushroom",
+      "username" : "Denislav Stoyanov"
+    },
+    "-LQTaoDTJ8I6sJdK9G_E" : {
+      "category" : "nature",
+      "date" : "2018-11-04T12:03:30.553Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQTaoDTJ8I6sJdK9G_E?alt=media&token=7f9870f0-42c2-4fca-8b33-cbb46dd9c286",
+      "key" : "-LQTaoDTJ8I6sJdK9G_E",
+      "title" : "lake",
+      "username" : "Denislav Stoyanov"
+    },
+    "-LQTb-oGmuSNh56Q9IQ-" : {
+      "category" : "nature",
+      "date" : "2018-11-04T12:04:22.124Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQTb-oGmuSNh56Q9IQ-?alt=media&token=77c68b52-4af1-4e46-b1fd-5cf70c67a7e8",
+      "key" : "-LQTb-oGmuSNh56Q9IQ-",
+      "title" : "sunrise by the lake",
+      "username" : "Denislav Stoyanov"
+    },
+    "-LQYcHuaP2CjkKCXs86h" : {
+      "category" : "animals",
+      "date" : "2018-11-05T11:28:03.296Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQYcHuaP2CjkKCXs86h?alt=media&token=89132278-246c-4cc8-8e05-a30186394004",
+      "key" : "-LQYcHuaP2CjkKCXs86h",
+      "title" : "Strange bird",
+      "username" : "Denislav"
+    },
+    "-LQa0AuDt8xIsUhZVlY6" : {
+      "category" : "nature",
+      "date" : "2018-11-05T22:36:04.110Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQa0AuDt8xIsUhZVlY6?alt=media&token=6c8d7e07-451e-438d-b5b5-18820d462c29",
+      "key" : "-LQa0AuDt8xIsUhZVlY6",
+      "title" : "Beautiful",
+      "username" : "Denislav"
+    },
+    "-LQeDYOnAMiOjcjcQwmI" : {
+      "category" : "portraits",
+      "date" : "2018-11-06T18:13:04.112Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQeDYOnAMiOjcjcQwmI?alt=media&token=1631a945-4ab5-4b03-b517-0bbd34b81775",
+      "key" : "-LQeDYOnAMiOjcjcQwmI",
+      "title" : "Bubbles",
+      "username" : "Tanya"
+    },
+    "-LQeVKAzMn5m9C372XNJ" : {
+      "category" : "animals",
+      "date" : "2018-11-06T19:30:37.759Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQeVKAzMn5m9C372XNJ?alt=media&token=f22d42b7-5731-49bd-bcff-893a415d46e0",
+      "key" : "-LQeVKAzMn5m9C372XNJ",
+      "title" : "dhuifhiufhihgiuhguhruihriu uhu ruhru hru ruhr uhurh urhu",
+      "username" : "Denislav Stoyanov"
+    },
+    "-LQhXrHTSiz1xdKjaFsM" : {
+      "category" : "animals",
+      "date" : "2018-11-07T09:40:31.583Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQhXrHTSiz1xdKjaFsM?alt=media&token=ce67bd12-ba84-4a9b-9b5f-09aa627ac3d8",
+      "key" : "-LQhXrHTSiz1xdKjaFsM",
+      "title" : "He is so happy ",
+      "username" : "Denislav Stoyanov"
+    },
+    "-LQhYppscfxom6ienwn2" : {
+      "category" : "animals",
+      "date" : "2018-11-07T09:44:47.801Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQhYppscfxom6ienwn2?alt=media&token=e8b78239-b1e9-4f60-b4b0-d4cf19a96a88",
+      "key" : "-LQhYppscfxom6ienwn2",
+      "title" : "Resting tiger",
+      "username" : "Denislav Stoyanov"
+    },
+    "-LQh_Yayaup4vyUGKOV4" : {
+      "category" : "nature",
+      "date" : "2018-11-07T09:52:17.402Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQh_Yayaup4vyUGKOV4?alt=media&token=55a7a069-48b1-446e-8d6d-e0ccfd784e0b",
+      "key" : "-LQh_Yayaup4vyUGKOV4",
+      "title" : "Canada",
+      "username" : "John Smith"
+    },
+    "-LQi3m6KiCu6CU6QXrK4" : {
+      "category" : "portraits",
+      "date" : "2018-11-07T12:08:43.265Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQi3m6KiCu6CU6QXrK4?alt=media&token=c7df9cb8-0ebc-4846-93f3-877554ae1293",
+      "key" : "-LQi3m6KiCu6CU6QXrK4",
+      "title" : "Baby",
+      "username" : "John "
+    },
+    "-LQjpswsjxiUMH-MKCxc" : {
+      "category" : "portraits",
+      "date" : "2018-11-07T20:22:56.249Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQjpswsjxiUMH-MKCxc?alt=media&token=f60f71cd-5986-42dd-ba40-8a84b07c5e56",
+      "key" : "-LQjpswsjxiUMH-MKCxc",
+      "title" : "Portrait of a woman",
+      "username" : "Denislav Stoyanov"
+    },
+    "-LQjq7Wnt_Hjxx0ySMwP" : {
+      "category" : "portraits",
+      "date" : "2018-11-07T20:24:00.051Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQjq7Wnt_Hjxx0ySMwP?alt=media&token=c9e498fe-0954-41c8-b8ad-cf919c5a2c98",
+      "key" : "-LQjq7Wnt_Hjxx0ySMwP",
+      "title" : "Rihanna",
+      "username" : "Denislav Stoyanov"
+    },
+    "-LQjqM27ZQTIwr716MR9" : {
+      "category" : "portraits",
+      "date" : "2018-11-07T20:24:59.528Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQjqM27ZQTIwr716MR9?alt=media&token=8537a8dd-25b3-4650-8aaa-07fc0bd552ad",
+      "key" : "-LQjqM27ZQTIwr716MR9",
+      "title" : "Daenerys game of thrones",
+      "username" : "Denislav"
+    },
+    "-LQjqgCux2xtTe-mnxc6" : {
+      "category" : "portraits",
+      "date" : "2018-11-07T20:26:26.234Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQjqgCux2xtTe-mnxc6?alt=media&token=ca37a5cc-54dc-4e5f-a7d0-c173e2830750",
+      "key" : "-LQjqgCux2xtTe-mnxc6",
+      "title" : "Angelina Jolie",
+      "username" : "Denislav Stoyanov"
+    },
+    "-LQjqpzotD7kpTOulLiO" : {
+      "category" : "portraits",
+      "date" : "2018-11-07T20:27:06.292Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQjqpzotD7kpTOulLiO?alt=media&token=a79092dc-a102-4af6-8120-c66b5bbcd683",
+      "key" : "-LQjqpzotD7kpTOulLiO",
+      "title" : "Black and white",
+      "username" : "Peter"
+    },
+    "-LQjrF-b8C-g48qybMgm" : {
+      "category" : "selfies",
+      "date" : "2018-11-07T20:28:52.839Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQjrF-b8C-g48qybMgm?alt=media&token=fa49ac37-8c85-4341-b5e7-fc29d647bc23",
+      "key" : "-LQjrF-b8C-g48qybMgm",
+      "title" : "Scary selfie with a bear",
+      "username" : "Denislav Stoyanov"
+    },
+    "-LQjryIg6H3nj6YOpWX-" : {
+      "category" : "selfies",
+      "date" : "2018-11-07T20:32:02.476Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQjryIg6H3nj6YOpWX-?alt=media&token=fee3efa4-e37d-4e1a-9e38-48ad589efa25",
+      "key" : "-LQjryIg6H3nj6YOpWX-",
+      "title" : "Dangerous selfie in Rio",
+      "username" : "Diana"
+    },
+    "-LQjsHouGdBPeLevGcQw" : {
+      "category" : "selfies",
+      "date" : "2018-11-07T20:33:26.522Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQjsHouGdBPeLevGcQw?alt=media&token=fea53755-5ab9-43ff-9432-d36e2f7a7a92",
+      "key" : "-LQjsHouGdBPeLevGcQw",
+      "title" : "dangerous",
+      "username" : "Sharleen"
+    },
+    "-LQjs_xKo51yLoPcAQB9" : {
+      "category" : "selfies",
+      "date" : "2018-11-07T20:34:44.885Z",
+      "downloadURL" : "https://firebasestorage.googleapis.com/v0/b/the-album-e3cc7.appspot.com/o/images%2F-LQjs_xKo51yLoPcAQB9?alt=media&token=dd5aad71-c7b1-42fb-ae04-3009cacd99c7",
+      "key" : "-LQjs_xKo51yLoPcAQB9",
+      "title" : "Angela high in the sky",
+      "username" : "Angela"
+    }
+  }
+}

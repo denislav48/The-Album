@@ -15,20 +15,19 @@ const createButton = (page) => {
 const renderButtons = (page, totalPhotos, photosPerPage) => {
     const pages = Math.ceil(totalPhotos / photosPerPage);
 
-    let buttons = createButton(1);
+    let buttons;
     //If there is one page
     if (page === 1 && pages === 1) {
         //if there is only one button
-        buttons = `${createButton(page)}`;
-
+        buttons = ``;
         //If there is more than one page
     } else if (page <= pages) {
-        for (let i = 2; i <= pages; i += 1) {
+        for (let i = 1; i <= pages; i += 1) {
             buttons += `${createButton(i)}`;
         }
     }
 
-    elements.paginationNavigation.innerHTML = buttons;
+    elements.navButtons.innerHTML = buttons;
 }
 //Photos rendering template
 const renderPhoto = photo => {
