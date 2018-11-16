@@ -8,7 +8,7 @@ import { config } from './config/firebase.config';
 //SEARCH CONTROLLER
 const state = {};
 export const controlSearch = async (page, val) => {
-    // 1) Get query from view
+    // 1) Get query from select category
     const query = searchView.getSelectValue();
     state.search = new Search(query);
     try {
