@@ -89,7 +89,7 @@ export const events = () => {
             * Without the last condition if we change category and try to load immediately 
             *the same page number nothing will happen.
             */
-            if (lastPage !== currenPage || lastResult !== currentResult) {
+            if ((lastPage !== currenPage || lastResult !== currentResult) && lastPage !== currenPage ) {
                 lastPage = currenPage;
                 elements.searchResPages.innerHTML = '';
 

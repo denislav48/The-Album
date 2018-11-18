@@ -15,31 +15,41 @@ const createButton = (page) => {
 const renderButtons = (totalPhotos, photosPerPage) => {
     const pages = Math.ceil(totalPhotos / photosPerPage);
 
+    
     let buttons = '';
+    if(pages >  1) {
         for (let i = 1; i <= pages; i += 1) {
             buttons += `${createButton(i)}`;
         }
+    }
     elements.navButtons.innerHTML = buttons;
 }
 //Photos rendering template
 const renderPhoto = photo => {
 
-    function isTitleLessThan20Symbols() {
+    function ifTitleLessThan20Symbols() {
         if (photo.title.length <= 20) {
             return photo.title;
         } else {
             return photo.title.split('').splice(0, 21).join('') + '...';
         }
     }
+    function ifNameLessThan20Symbols() {
+        if (photo.username.length <= 20) {
+            return photo.username;
+        } else {
+            return photo.username.split('').splice(0,21).join('') + '...';
+        }
+    }
     if (photo) {
         const markup = `
             <div class="picFrame myImg">
                 <ul class="picInfo list-inline mx-auto justify-content-center">
-                    <li class="list-inline-item"><span class="date">${isTitleLessThan20Symbols()}</span></li>            
+                    <li class="list-inline-item"><span class="date">${ifTitleLessThan20Symbols()}</span></li>            
                 </ul>
                 <img class="renderedPics" src="${photo.downloadURL} alt="${photo.title}"> 
                 <ul class="picInfo list-inline mx-auto justify-content-center">
-                    <li class="list-inline-item">Posted by <span class="name">${photo.username}</span></li>
+                    <li class="list-inline-item">Posted by <span class="name">${ifNameLessThan20Symbols()}</span></li>
                     <li class="list-inline-item"><span class="date">${photo.date.split('T').slice(0, 1)}</span></li>            
                 </ul>
              </div>
@@ -98,7 +108,7 @@ export const orderResult = (state, val, query, page) => {
         renderResults(categoryResults, page);
         //If nothing meets search criteria
     } else {
-        renderResults([null], page);
+        renderResults([], page);
     }
 }
 
