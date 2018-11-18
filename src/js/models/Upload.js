@@ -24,6 +24,8 @@ export const writeNewPost = (title, username, category) => {
   };
 
   // Writting the new post's data simultaneously in the Album list and in the images post list.
+  
+  
   let updates = {};
 
   //Create new post reference key with it's coresponding data
